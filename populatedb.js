@@ -46,8 +46,8 @@ async function main() {
 // We pass the index to the ...Create functions so that, for example,
 // genre[0] will always be the Fantasy genre, regardless of the order
 // in which the elements of promise.all's argument complete.
-async function serviceCreate(index, name, price, time) {
-    const service = new Service({ name: name, price: price, time: time });
+async function serviceCreate(index, name, price, time, category) {
+    const service = new Service({ name: name, price: price, time: time, category: category });
     await service.save();
     services[index] = service;
     console.log(`Added service: ${name}`);
@@ -84,16 +84,15 @@ async function appointmentCreate(index, date, location, barber, services, custom
 async function createServices() {
     console.log("Adding services");
     await Promise.all([
-        serviceCreate(0, "Classic cut", 14, 30),
-        serviceCreate(1, "Skin fade", 15, 30),
-        serviceCreate(2, "Beard trim", 7, 30),
-        serviceCreate(3, "Beard trim deluxe", 14, 30),
-        serviceCreate(4, "Classic cut & beard trim", 18, 30),
-        serviceCreate(5, "Skin fade & beard trim", 20, 30),
-        serviceCreate(6, "Junior cut", 12, 30),
-        serviceCreate(7, "Hot towel straight razor shave", 15, 30),
-        serviceCreate(8, "Face spa", 15, 30),
-        serviceCreate(9, "Head wash", 2, 15),
+        serviceCreate(0, "Classic cut", 14, 30, "Hair"),
+        serviceCreate(1, "Skin fade", 15, 30, "Hair"),
+        serviceCreate(2, "Beard trim", 7, 30, "Beard"),
+        serviceCreate(3, "Beard trim deluxe", 14, 30, "Beard"),
+        serviceCreate(4, "Classic cut & beard trim", 18, 30, "Packages & Combos"),
+        serviceCreate(5, "Skin fade & beard trim", 20, 30, "Packages & Combos"),
+        serviceCreate(6, "Junior cut", 12, 30, "Hair"),
+        serviceCreate(7, "Hot towel straight razor shave", 15, 30, "Shave"),
+        serviceCreate(8, "Face spa", 15, 30, "Facial Treatment"),
     ]);
 }
   
