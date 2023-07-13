@@ -8,4 +8,10 @@ router.get('/', async function(req, res, next) {
     res.json(barbers);
 });
 
+/* GET one barber. */
+router.get('/:barberId', async function(req, res, next) {
+    const barber = await Barber.findById(req.params.barberId);
+    res.json(barber);
+});
+
 module.exports = router;
