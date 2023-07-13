@@ -14,4 +14,15 @@ router.get('/:barberId', async function(req, res, next) {
     res.json(barber);
 });
 
+/* GET one barber's working hours. */
+router.get('/:barberId/working_hours', async function(req, res, next) {
+    const barber = await Barber.findById(req.params.barberId);
+    res.json(barber.working_hours);
+});
+
+/* GET one barber's working hours by day of the week ex. monday/friday */
+router.get('/:barberId/working_hours/:day', async function(req, res, next) {
+    const barber = await Barber.findById(req.params.barberId);
+    res.json(barber.working_hours[req.params.day]);
+});
 module.exports = router;
