@@ -46,15 +46,23 @@ async function main() {
 // We pass the index to the ...Create functions so that, for example,
 // genre[0] will always be the Fantasy genre, regardless of the order
 // in which the elements of promise.all's argument complete.
-async function serviceCreate(index, name, price, time, category) {
-    const service = new Service({ name: name, price: price, time: time, category: category });
+async function serviceCreate(index, name, price, time, category, description) {
+    const service = new Service({ name: name, price: price, time: time, category: category, description: description });
     await service.save();
     services[index] = service;
     console.log(`Added service: ${name}`);
 }
 
 async function barberCreate(index, first_name, last_name, phone_number) {
-    const barber = new Barber({ first_name: first_name, last_name: last_name, phone_number: phone_number });
+    let working_hours = {};
+    working_hours.monday = {start: 900, end: 1800, isWorking: true};
+    working_hours.tuesday = {start: 800, end: 1700, isWorking: true};
+    working_hours.wednesday = {start: 1000, end: 1900, isWorking: true};
+    working_hours.thursday = {start: 1200, end: 2100, isWorking: true};
+    working_hours.friday = {start: 900, end: 1800, isWorking: true};
+    working_hours.saturday = {};
+    working_hours.sunday = {};
+    const barber = new Barber({ first_name: first_name, last_name: last_name, phone_number: phone_number, working_hours: working_hours });
     await barber.save();
     barbers[index] = barber;
     console.log(`Added barber: ${first_name} ${last_name}`);
@@ -84,15 +92,15 @@ async function appointmentCreate(index, date, location, barber, services, custom
 async function createServices() {
     console.log("Adding services");
     await Promise.all([
-        serviceCreate(0, "Classic cut", 14, 30, "Hair"),
-        serviceCreate(1, "Skin fade", 15, 30, "Hair"),
-        serviceCreate(2, "Beard trim", 7, 30, "Beard"),
-        serviceCreate(3, "Beard trim deluxe", 14, 30, "Beard"),
-        serviceCreate(4, "Classic cut & beard trim", 18, 30, "Packages & Combos"),
-        serviceCreate(5, "Skin fade & beard trim", 20, 30, "Packages & Combos"),
-        serviceCreate(6, "Junior cut", 12, 30, "Hair"),
-        serviceCreate(7, "Hot towel straight razor shave", 15, 30, "Shave"),
-        serviceCreate(8, "Face spa", 15, 30, "Facial Treatment"),
+        serviceCreate(0, "Classic cut", 14, 30, "Hair", "Classic Mens haircut."),
+        serviceCreate(1, "Skin fade", 15, 30, "Hair", "Haircut performed with a shaver."),
+        serviceCreate(2, "Beard trim", 7, 30, "Beard", "Beard trim performed with the use of a trimmer and shaver. At the end of the procedure we apply balms and oil."),
+        serviceCreate(3, "Beard trim deluxe", 14, 30, "Beard", "Beard trim + hot & cold towel treatment for skin soothing and pore opening."),
+        serviceCreate(4, "Classic cut & beard trim", 18, 30, "Packages & Combos", "Classic Mens haircut. \n Beard trim performed with the use of a trimmer and shaver. At the end of the procedure we apply balms and oil."),
+        serviceCreate(5, "Skin fade & beard trim", 20, 30, "Packages & Combos", "Haircut performed with a shaver. \n Beard trim performed with the use of a trimmer and shaver. At the end of the procedure we apply balms and oil."),
+        serviceCreate(6, "Junior cut", 12, 30, "Hair", "Haircut for Men under 14 years old"),
+        serviceCreate(7, "Hot towel straight razor shave", 15, 30, "Shave", "Traditional hot & cold towel treatment for skin soothing and pore opening + straight razor shave"),
+        serviceCreate(8, "Face spa", 15, 30, "Facial Treatment", "This is a Facial Treatment which whill help you relax and decompress througout a stressfull day. Includes hot & cold towels, face scrub, face mask, face hydration cream and a light head and face massage."),
     ]);
 }
   

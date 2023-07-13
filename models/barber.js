@@ -6,6 +6,15 @@ const BarberSchema = new Schema({
   first_name: { type: String, required: true, maxLength: 100 },
   last_name: { type: String, required: true, maxLength: 100 },
   phone_number: { type: Number, required: true, maxLength: 100},
+  working_hours: { 
+    monday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+    tuesday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+    wednesday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+    thursday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+    friday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+    saturday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+    sunday: {start: { type: Number, default: -1 }, end: { type: Number, default: -1 }, isWorking: { type: Boolean,  default: false }},
+   }
 });
 
 // Virtual for author's full name
