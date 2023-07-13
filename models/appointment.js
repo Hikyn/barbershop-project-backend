@@ -3,7 +3,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const AppointmentSchema = new Schema({
-    date: { type: Date, required: true },
+    date: { 
+      day: { type: Number, required: true}, 
+      month: { type: Number, required: true}, 
+      year: { type: Number, required: true}
+    },
+    timeslot: { type: Number, required: true },
     location: { type: Schema.Types.ObjectId, ref: "Barbershop", required: true },
     barber: { type: Schema.Types.ObjectId, ref: "Barber", required: true },
     services: [{ type: Schema.Types.ObjectId, ref: "Service", required: true }],

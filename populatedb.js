@@ -82,8 +82,14 @@ async function customerCreate(index, first_name, last_name, phone_number, appoin
     console.log(`Added customer: ${first_name} ${last_name}`);
 }
 
-async function appointmentCreate(index, date, location, barber, services, customer, status) {
-    const appointment = new Appointment({ date: date, location: location, barber: barber, services: services, customer: customer, status: status });
+async function appointmentCreate(index, location, barber, services, customer, status, timeslot) {
+    const date = new Date();
+    const day = date.getDate();
+    // in Date monthes start from zero, but it is counter intuitive for get requests
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    
+    const appointment = new Appointment({ date: {day: day, month: month, year: year}, location: location, barber: barber, services: services, customer: customer, status: status, timeslot: timeslot });
     await appointment.save();
     appointments[index] = appointment;
     console.log(`Added appointment: ${date}`);
@@ -137,13 +143,14 @@ async function createCustomers() {
 
 async function createAppointments() {
     console.log("Adding appointments");
-    const d = new Date();
+    
     console.log(customers[0])
+    console.log(new Date().getDate())
     await Promise.all([
-        appointmentCreate(0, new Date(), barbershops[0], barbers[0], [services[0]], customers[0], "Scheduled"),
-        appointmentCreate(1, new Date(), barbershops[0], barbers[1], [services[0],services[2]], customers[1], "Scheduled"),
-        appointmentCreate(2, new Date(), barbershops[0], barbers[2], [services[1]], customers[2], "Scheduled"),
-        appointmentCreate(3, new Date(), barbershops[1], barbers[3], [services[0]], customers[3], "Scheduled"),
-        appointmentCreate(5, new Date(), barbershops[1], barbers[5], [services[1],services[2]], customers[4], "Scheduled")
+        appointmentCreate(0, barbershops[0], barbers[0], [services[0]], customers[0], "Scheduled", 1500),
+        appointmentCreate(1, barbershops[0], barbers[1], [services[0],services[2]], customers[1], "Scheduled", 1300),
+        appointmentCreate(2, barbershops[0], barbers[2], [services[1]], customers[2], "Scheduled", 1600),
+        appointmentCreate(3, barbershops[1], barbers[3], [services[0]], customers[3], "Scheduled", 1400),
+        appointmentCreate(5, barbershops[1], barbers[5], [services[1],services[2]], customers[4], "Scheduled", 1500)
     ]);
 }
