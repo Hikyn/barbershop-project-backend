@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Appointment = require('../models/appointment');
+const Customer = require('../models/customer');
 
 /* GET current appointments */
 router.get('/', async function(req, res, next) {
@@ -18,18 +19,22 @@ router.get('/:appointmentId', async function(req, res, next) {
 
 /* POST new appointment */
 router.post('/', async function(req, res, next) {
-  console.log(req.body)
   const form_info = req.body;
+  console.log(form_info)
+  const customer = await Customer.findById(form_info.customer_id);
+  
   const appointment = new Appointment({ 
     date: form_info.date,
+    timeslot: form_info.timeslot,
     location: form_info.location, 
     barber: form_info.barber, 
     services: form_info.services, 
-    customer: form_info.customer, 
-    status: form_info.status 
+    customer: customer,
+    status: form_info.status,
+    
   });
   await appointment.save();
-  res.status(200);
+  res.status(200); 
 });
 
 /* EDIT existing appointment */
