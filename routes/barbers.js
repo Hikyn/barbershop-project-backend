@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Barber = require('../models/barber');
+const Barbershop = require('../models/barbershop');
 const Appointment = require('../models/appointment');
 
 /* GET all barbers. */
@@ -67,6 +68,65 @@ router.get('/:barberId/timeslots/:day/:month/:year', async function(req, res, ne
         })
         res.json(timeslots)
     }
+});
+
+/* GET all barber's timeslots */
+router.get('/timeslots/:barbershopId/:day/:month/:year', async function(req, res, next) {
+    const date = new Date(`${req.params.year}-${req.params.month}-${req.params.day}`)
+    const day = date.getDay();
+    const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    const barbershop = await Barbershop.findById(req.params.barbershopId).populate('staff');
+    //const barbers = barbershop.staff;
+
+    const gt = function getTimeslots(barber) {
+        return new Promise(async function(resolve, reject) {
+            if (barber === null || barber === undefined) {
+                reject('No barbers');
+            }
+            let timeslots = [];
+            const working_hours = barber.working_hours[dayNames[day]];
+            const appointments = await Appointment.find({barber: barber, date: {day: Number(req.params.day), month: Number(req.params.month), year: Number(req.params.year)}});
+            if (working_hours.isWorking === false) {
+                timeslots = [];
+            } else {
+                let time = working_hours.start;
+                timeslots = [];
+                while(time < working_hours.end) {
+                    //console.log(time)
+                    timeslots.push(time)
+                    // If time is 800, 900, 1500 etc
+                    if ( time % 50 === 0) {
+                        time+= 30;
+                    } else {
+                        // Time is 830, 930, 1530
+                        time+= 70;
+                    }
+                }
+        
+                appointments.forEach((appointment) => {
+                    console.log(`Appointment exists: ${appointment.timeslot}`)
+                    let index = timeslots.findIndex((timeslot) => timeslot === appointment.timeslot);
+                    timeslots.splice(index, 1);
+                })
+            }
+            resolve(timeslots)
+        });
+        
+    }
+    let timeslots = Promise.all(barbershop.staff.map(gt));
+
+    function getCombinedTimetable(timetable1, timetable2) {
+        for (let i = 0; i < timetable1.length; i++) {
+            if (!timetable2.includes(timetable1[i])) {
+                timetable2.push(timetable1[i]);
+            }
+        }
+        return (timetable2)
+    }
+    timeslots.then(data => {
+        data = data.reduce(getCombinedTimetable, []);
+        res.json(data);
+    })
 });
 
 module.exports = router;
