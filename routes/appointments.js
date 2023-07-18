@@ -35,6 +35,7 @@ router.post('/', async function(req, res, next) {
   });
   await appointment.save();
   res.status(200); 
+  res.json({isCreated: true});
 });
 
 /* EDIT existing appointment */
