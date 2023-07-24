@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Barbershop = require('../models/barbershop');
 const Barber = require('../models/barber');
-let tryCatch = require('../utils/tryCatch')
+let tryCatch = require('../utils/tryCatch');
 
 /* GET all barbershops. */
 router.get('/', tryCatch(async function(req, res, next) {

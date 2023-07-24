@@ -3,42 +3,68 @@ var router = express.Router();
 const Barber = require('../models/barber');
 const Barbershop = require('../models/barbershop');
 const Appointment = require('../models/appointment');
+let tryCatch = require('../utils/tryCatch');
 
 /* GET all barbers. */
-router.get('/', async function(req, res, next) {
+router.get('/', tryCatch(async function(req, res, next) {
     const barbers = await Barber.find();
+    if (!barbers) {
+        throw new Error('Barbers not found');
+    }
+    res.status(200);
     res.json(barbers);
-});
+}));
 
 /* GET one barber. */
-router.get('/:barberId', async function(req, res, next) {
+router.get('/:barberId', tryCatch(async function(req, res, next) {
     const barber = await Barber.findById(req.params.barberId);
+    if (!barber) {
+        throw new Error('Barber not found');
+    }
+    res.status(200);
     res.json(barber);
-});
+}));
 
 /* GET one barber's working hours. */
-router.get('/:barberId/working_hours', async function(req, res, next) {
+router.get('/:barberId/working_hours', tryCatch(async function(req, res, next) {
     const barber = await Barber.findById(req.params.barberId);
+    if (!barber) {
+        throw new Error('Barber not found');
+    }
+    res.status(200);
     res.json(barber.working_hours);
-});
+}));
 
 /* GET one barber's working hours by day of the week ex. monday/friday */
-router.get('/:barberId/working_hours/:day', async function(req, res, next) {
+router.get('/:barberId/working_hours/:day', tryCatch(async function(req, res, next) {
     const barber = await Barber.findById(req.params.barberId);
+    if (!barber) {
+        throw new Error('Barber not found');
+    }
+    res.status(200);
     res.json(barber.working_hours[req.params.day]);
-});
+}));
 
 /* GET one barber's appointments */
-router.get('/:barberId/appointments', async function(req, res, next) {
+router.get('/:barberId/appointments', tryCatch(async function(req, res, next) {
     const barber = await Barber.findById(req.params.barberId);
+    if (!barber) {
+        throw new Error('Barber not found');
+    }
     const appointments = await Appointment.find({barber: barber});
+    if (!appointments) {
+        throw new Error('Appointments for barber not found');
+    }
+    res.status(200);
     res.json(appointments);
-});
+}));
 
 /* GET one barber's timeslots */
-router.get('/:barberId/timeslots/:day/:month/:year', async function(req, res, next) {
+router.get('/:barberId/timeslots/:day/:month/:year', tryCatch(async function(req, res, next) {
     const barber = await Barber.findById(req.params.barberId);
-
+    if (!barber) {
+        throw new Error('Barber not found');
+    }
     const date = new Date(`${req.params.year}-${req.params.month}-${req.params.day}`)
     const day = date.getDay();
     const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
@@ -66,12 +92,13 @@ router.get('/:barberId/timeslots/:day/:month/:year', async function(req, res, ne
             let index = timeslots.findIndex((timeslot) => timeslot === appointment.timeslot);
             timeslots.splice(index, 1);
         })
+        res.status(200);
         res.json(timeslots)
     }
-});
+}));
 
 /* GET all barber's timeslots */
-router.get('/timeslots/:barbershopId/:day/:month/:year', async function(req, res, next) {
+router.get('/timeslots/:barbershopId/:day/:month/:year', tryCatch(async function(req, res, next) {
     const date = new Date(`${req.params.year}-${req.params.month}-${req.params.day}`)
     const day = date.getDay();
     const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
@@ -125,15 +152,14 @@ router.get('/timeslots/:barbershopId/:day/:month/:year', async function(req, res
     }
     timeslots.then(data => {
         data = data.reduce(getCombinedTimetable, []);
+        res.status(200);
         res.json(data);
     })
-});
+}));
 
 /* GET all barber's timeslots */
-router.get('/timeslots/:barbershopId/:day/:month/:year/:timeslot/randomBarber', async function(req, res, next) {
+router.get('/timeslots/:barbershopId/:day/:month/:year/:timeslot/randomBarber', tryCatch(async function(req, res, next) {
     const date = new Date(`${req.params.year}-${req.params.month}-${req.params.day}`);
-    const day = date.getDay();
-    const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
     const barbershop = await Barbershop.findById(req.params.barbershopId).populate('staff');
 
     const barbers = barbershop.staff;
@@ -154,8 +180,11 @@ router.get('/timeslots/:barbershopId/:day/:month/:year/:timeslot/randomBarber', 
     let availableBarbers = Promise.all(barbers.map(gt));
     availableBarbers.then(barbers => barbers.filter(n => n))
     .then(filteredBarbers => filteredBarbers[Math.floor(Math.random() * filteredBarbers.length)])
-    .then(randomBarber => res.json(randomBarber));
+    .then(randomBarber => {
+        res.status(200);
+        res.json(randomBarber)
+    });
     
-});
+}));
 
 module.exports = router;
