@@ -12,6 +12,8 @@ var customersRouter = require('./routes/customers');
 var timeslotsRouter = require('./routes/timeslots');
 var appointmentRouter = require('./routes/appointments');
 
+var errorHandler = require('./middleware/errorHandler');
+
 var app = express();
 const cors = require("cors")
 app.use(cors())
@@ -55,6 +57,8 @@ app.use('/timeslots', timeslotsRouter);
 app.get('/appointment', async function(req, res, next) {
   res.redirect('/appointments')
 });
+
+app.use(errorHandler);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
