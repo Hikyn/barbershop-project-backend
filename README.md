@@ -21,6 +21,10 @@ REST API on:
   <img src="https://img.shields.io/badge/Atlas-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" />
 </a>
 
+Full project overview here:
+
+https://github.com/Hikyn/barbershop-project
+
 #### Services
 <details>
  <summary><code>GET</code> <code><b>/services</b></code> <code>(get all available barbershop services)</code></summary>
