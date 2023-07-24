@@ -129,4 +129,33 @@ router.get('/timeslots/:barbershopId/:day/:month/:year', async function(req, res
     })
 });
 
+/* GET all barber's timeslots */
+router.get('/timeslots/:barbershopId/:day/:month/:year/:timeslot/randomBarber', async function(req, res, next) {
+    const date = new Date(`${req.params.year}-${req.params.month}-${req.params.day}`);
+    const day = date.getDay();
+    const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    const barbershop = await Barbershop.findById(req.params.barbershopId).populate('staff');
+
+    const barbers = barbershop.staff;
+    const gt = function getTimeslots(barber) {
+        return new Promise(async function(resolve, reject) {
+            const url = `http:/localhost:3000/barbers/${barber._id}/timeslots/${req.params.day}/${req.params.month}/${req.params.year}`;
+            const res = await fetch(url, {
+                method: "GET"
+            })
+            const timeslots = await res.json();
+            if (timeslots.includes(Number(req.params.timeslot))) {
+                resolve(barber);
+            } else {
+                resolve();
+            }
+        })
+    }
+    let availableBarbers = Promise.all(barbers.map(gt));
+    availableBarbers.then(barbers => barbers.filter(n => n))
+    .then(filteredBarbers => filteredBarbers[Math.floor(Math.random() * filteredBarbers.length)])
+    .then(randomBarber => res.json(randomBarber));
+    
+});
+
 module.exports = router;
