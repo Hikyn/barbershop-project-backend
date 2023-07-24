@@ -23,7 +23,7 @@ REST API on:
 
 #### Services
 <details>
- <summary><code>GET</code> <code><b>/services</b></code> <code>(receive all available barbershop services)</code></summary>
+ <summary><code>GET</code> <code><b>/services</b></code> <code>(get all available barbershop services)</code></summary>
   
 ##### Parameters
 
@@ -42,7 +42,7 @@ REST API on:
 #### Barbers, specific appointmens and available timeslots
 
 <details>
- <summary><code>GET</code> <code><b>/barbers</b></code> <code>(receive all barbers regardless of location)</code></summary>
+ <summary><code>GET</code> <code><b>/barbers</b></code> <code>(get all barbers regardless of location)</code></summary>
   
 ##### Parameters
 
