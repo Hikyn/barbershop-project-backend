@@ -6,7 +6,7 @@ let tryCatch = require('../utils/tryCatch')
 /* GET all services. */
 router.get('/', tryCatch(async function(req, res, next) {
     const services = await Service.find();
-    if (!appointment) {
+    if (!services) {
         throw new Error('No services found')
       }
       res.status(200);
