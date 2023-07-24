@@ -1,6 +1,25 @@
 # barbershop-project-backend
+REST API on:
 
-Node.js/Express.js/Mongodb/Atlas
+<a href="https://expressjs.com/">
+  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" />
+</a>
+
+<a href="https://de.wikipedia.org/wiki/JavaScript">
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=yellow" />
+</a>
+
+<a href="https://nodejs.org/">
+  <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" />
+</a>
+
+<a href="https://www.mongodb.com/">
+  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" />
+</a>
+
+<a href="https://www.mongodb.com/atlas">
+  <img src="https://img.shields.io/badge/Atlas-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" />
+</a>
 
 #### Services
 <details>
