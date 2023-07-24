@@ -245,12 +245,130 @@ Node.js/Express.js/Mongodb/Atlas
 >
 > </details>
 
+<details>
+ <summary><code>PUT</code> <code><b>/appointments/:appointmentId</b></code> <code>(edit an appointment by {appointmentId})</code></summary>
+  
+##### Body
 
-    PUT /appointments/:appointmentId
-    DELETE /appointments/:appointmentId
+> | name             |  type     | data type      | description                              |
+> |------------------|-----------|----------------|------------------------------------------|
+> | {appointmentId}  |  required | String         | Specific MongoDB id of an appointment    |
 
-    GET /customers/
-    GET /customers/:userid
-    POST /customers/:userid
-    PUT /customers/:userid
-    DELETE /customers/:userid
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
+
+<details>
+ <summary><code>DELETE</code> <code><b>/appointments/:appointmentId</b></code> <code>(delete an appointment by {appointmentId})</code></summary>
+  
+##### Body
+
+> | name             |  type     | data type      | description                              |
+> |------------------|-----------|----------------|------------------------------------------|
+> | {appointmentId}  |  required | String         | Specific MongoDB id of an appointment    |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
+
+#### Customers
+
+<details>
+ <summary><code>GET</code> <code><b>/customers</b></code> <code>(get all customers)</code></summary>
+  
+##### Body
+
+> | name             |  type     | data type      | description                              |
+> |------------------|-----------|----------------|------------------------------------------|
+> | None  |  required | N/A         | N/A    |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
+
+<details>
+ <summary><code>POST</code> <code><b>/customers/</b></code> <code>(create a new customer)</code></summary>
+  
+##### Body
+
+> | name             |  type        | data type      | description                              |
+> |------------------|--------------|----------------|------------------------------------------|
+> | None             |  no required | N/A            | N/A                                      | 
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
+
+<details>
+ <summary><code>GET</code> <code><b>/customers/:customerId</b></code> <code>(get customer information by {customerId})</code></summary>
+  
+##### Body
+
+> | name             |  type     | data type      | description                              |
+> |------------------|-----------|----------------|------------------------------------------|
+> | {customerId}     |  required | String         | Specific MongoDB id of a customer        |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
+
+<details>
+ <summary><code>PUT</code> <code><b>/customers/:customerId</b></code> <code>(edit existing customer by {customerId})</code></summary>
+  
+##### Body
+
+> | name             |  type     | data type      | description                              |
+> |------------------|-----------|----------------|------------------------------------------|
+> | {customerId}     |  required | String         | Specific MongoDB id of a customer        |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
+
+<details>
+ <summary><code>DELETE</code> <code><b>/customers/:customerId</b></code> <code>(delete a customer by {customerId})</code></summary>
+  
+##### Body
+
+> | name             |  type     | data type      | description                              |
+> |------------------|-----------|----------------|------------------------------------------|
+> | {customerId}     |  required | String         | Specific MongoDB id of a customer        |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | object (JSON)                                                       |
+> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+>
+> </details>
