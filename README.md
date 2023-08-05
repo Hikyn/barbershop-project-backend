@@ -1,4 +1,5 @@
 # barbershop-project-backend
+
 REST API on:
 
 <a href="https://expressjs.com/">
@@ -26,21 +27,23 @@ Full project overview here:
 https://github.com/Hikyn/barbershop-project
 
 #### Services
+
 <details>
  <summary><code>GET</code> <code><b>/services</b></code> <code>(get all available barbershop services)</code></summary>
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | None             |  required | N/A            | N/A                                 |
+> | name | type     | data type | description |
+> | ---- | -------- | --------- | ----------- |
+> | None | required | N/A       | N/A         |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            | 
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
+
 </details>
 
 #### Barbers, specific appointmens and available timeslots
@@ -50,16 +53,17 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | None             |  required | object (JSON)  | N/A                                 |
+> | name | type     | data type     | description |
+> | ---- | -------- | ------------- | ----------- |
+> | None | required | object (JSON) | N/A         |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            | 
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
+
 </details>
 
 <details>
@@ -67,16 +71,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbersId}      |  required | string         | Specific MongoDB id of a barber     |
+> | name        | type     | data type | description                     |
+> | ----------- | -------- | --------- | ------------------------------- |
+> | {barbersId} | required | string    | Specific MongoDB id of a barber |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -85,16 +89,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbersId}      |  required | string         | Specific MongoDB id of a barber     |
+> | name        | type     | data type | description                     |
+> | ----------- | -------- | --------- | ------------------------------- |
+> | {barbersId} | required | string    | Specific MongoDB id of a barber |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -103,17 +107,17 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbersId}      |  required | string         | Specific MongoDB id of a barber     |
-> | {day}            |  required | string         | monday/tuesday/wednesday/etc...     |
+> | name        | type     | data type | description                     |
+> | ----------- | -------- | --------- | ------------------------------- |
+> | {barbersId} | required | string    | Specific MongoDB id of a barber |
+> | {day}       | required | string    | monday/tuesday/wednesday/etc... |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -122,16 +126,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbersId}      |  required | string         | Specific MongoDB id of a barber     |
+> | name        | type     | data type | description                     |
+> | ----------- | -------- | --------- | ------------------------------- |
+> | {barbersId} | required | string    | Specific MongoDB id of a barber |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -140,19 +144,19 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbersId}      |  required | string         | Specific MongoDB id of a barber     |
-> | {day}            |  required | number         | 1, 2, 3, ...15, 16, ...30, 31       |
-> | {month}          |  required | number         | 1, 2, 3, ...10, 11, 12              |
-> | {year}           |  required | number         | Full year, ex. 2023                 |
+> | name        | type     | data type | description                     |
+> | ----------- | -------- | --------- | ------------------------------- |
+> | {barbersId} | required | string    | Specific MongoDB id of a barber |
+> | {day}       | required | number    | 1, 2, 3, ...15, 16, ...30, 31   |
+> | {month}     | required | number    | 1, 2, 3, ...10, 11, 12          |
+> | {year}      | required | number    | Full year, ex. 2023             |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -163,16 +167,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | None             |  required | N/A            | N/A                                 |
+> | name | type     | data type | description |
+> | ---- | -------- | --------- | ----------- |
+> | None | required | N/A       | N/A         |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -181,16 +185,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbershopId}   |  required | string         | Specific MongoDB id of a barbershop |
+> | name           | type     | data type | description                         |
+> | -------------- | -------- | --------- | ----------------------------------- |
+> | {barbershopId} | required | string    | Specific MongoDB id of a barbershop |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -199,16 +203,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | {barbershopId}   |  required | string         | Specific MongoDB id of a barbershop |
+> | name           | type     | data type | description                         |
+> | -------------- | -------- | --------- | ----------------------------------- |
+> | {barbershopId} | required | string    | Specific MongoDB id of a barbershop |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -219,16 +223,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Parameters
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | None             |  required | N/A            | N/A                                 |
+> | name | type     | data type | description |
+> | ---- | -------- | --------- | ----------- |
+> | None | required | N/A       | N/A         |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -237,16 +241,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                         |
-> |------------------|-----------|----------------|-------------------------------------|
-> | form_info        |  required | Object(JSON)   | Object containing customer_id, date, timeslot, location, barber, services, status          |
+> | name      | type     | data type    | description                                                                       |
+> | --------- | -------- | ------------ | --------------------------------------------------------------------------------- |
+> | form_info | required | Object(JSON) | Object containing customer_id, date, timeslot, location, barber, services, status |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -255,16 +259,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | {appointmentId}  |  required | String         | Specific MongoDB id of an appointment    |
+> | name            | type     | data type | description                           |
+> | --------------- | -------- | --------- | ------------------------------------- |
+> | {appointmentId} | required | String    | Specific MongoDB id of an appointment |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -273,16 +277,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | {appointmentId}  |  required | String         | Specific MongoDB id of an appointment    |
+> | name            | type     | data type | description                           |
+> | --------------- | -------- | --------- | ------------------------------------- |
+> | {appointmentId} | required | String    | Specific MongoDB id of an appointment |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -291,16 +295,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | {appointmentId}  |  required | String         | Specific MongoDB id of an appointment    |
+> | name            | type     | data type | description                           |
+> | --------------- | -------- | --------- | ------------------------------------- |
+> | {appointmentId} | required | String    | Specific MongoDB id of an appointment |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -311,16 +315,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | None  |  required | N/A         | N/A    |
+> | name | type     | data type | description |
+> | ---- | -------- | --------- | ----------- |
+> | None | required | N/A       | N/A         |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -329,16 +333,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type        | data type      | description                              |
-> |------------------|--------------|----------------|------------------------------------------|
-> | None             |  no required | N/A            | N/A                                      | 
+> | name | type        | data type | description |
+> | ---- | ----------- | --------- | ----------- |
+> | None | no required | N/A       | N/A         |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -347,16 +351,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | {customerId}     |  required | String         | Specific MongoDB id of a customer        |
+> | name         | type     | data type | description                       |
+> | ------------ | -------- | --------- | --------------------------------- |
+> | {customerId} | required | String    | Specific MongoDB id of a customer |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -365,16 +369,16 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | {customerId}     |  required | String         | Specific MongoDB id of a customer        |
+> | name         | type     | data type | description                       |
+> | ------------ | -------- | --------- | --------------------------------- |
+> | {customerId} | required | String    | Specific MongoDB id of a customer |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>
 
@@ -383,15 +387,15 @@ https://github.com/Hikyn/barbershop-project
   
 ##### Body
 
-> | name             |  type     | data type      | description                              |
-> |------------------|-----------|----------------|------------------------------------------|
-> | {customerId}     |  required | String         | Specific MongoDB id of a customer        |
+> | name         | type     | data type | description                       |
+> | ------------ | -------- | --------- | --------------------------------- |
+> | {customerId} | required | String    | Specific MongoDB id of a customer |
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | object (JSON)                                                       |
-> | <b>TO DO</b> `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+> | http code          | content-type       | response                                 |
+> | ------------------ | ------------------ | ---------------------------------------- |
+> | `200`              | `application/json` | object (JSON)                            |
+> | <b>TO DO</b> `400` | `application/json` | `{"code":"400","message":"Bad Request"}` |
 >
 > </details>

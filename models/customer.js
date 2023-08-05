@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const CustomerSchema = new Schema({
   first_name: { type: String, required: true, maxLength: 100 },
   last_name: { type: String, required: true, maxLength: 100 },
-  phone_number: { type: Number, required: true, maxLength: 100},
+  phone_number: { type: Number, required: true, maxLength: 100 },
 });
 
 // Virtual for author's full name

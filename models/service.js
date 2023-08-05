@@ -5,9 +5,13 @@ const Schema = mongoose.Schema;
 const ServiceSchema = new Schema({
   name: { type: String, required: true, maxLength: 100 },
   price: { type: Number, required: true, maxLength: 100 },
-  time: { type: Number, required: true, maxLength: 100},
-  category: { type: String, required: true, enum: ["Hair", "Beard", "Facial Treatment", "Shave", "Packages & Combos"]},
-  description: { type: String, required: true }
+  time: { type: Number, required: true, maxLength: 100 },
+  category: {
+    type: String,
+    required: true,
+    enum: ["Hair", "Beard", "Facial Treatment", "Shave", "Packages & Combos"],
+  },
+  description: { type: String, required: true },
 });
 
 // Virtual for author's URL
