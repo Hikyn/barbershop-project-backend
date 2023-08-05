@@ -1,6 +1,4 @@
-# barbershop-project-backend
-
-REST API on:
+# Barbershop project REST API
 
 <a href="https://expressjs.com/">
   <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" />
@@ -22,9 +20,9 @@ REST API on:
   <img src="https://img.shields.io/badge/Atlas-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" />
 </a>
 
-Full project overview here:
+It is part of a [barbershop project](https://github.com/Hikyn/barbershop-project/).
 
-https://github.com/Hikyn/barbershop-project
+<b>View my full portfolio</b>: https://hikyn.dev/
 
 #### Services
 
